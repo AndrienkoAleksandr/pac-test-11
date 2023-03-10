@@ -42,6 +42,20 @@ spec:
       - name: source
       - name: basic-auth
     tasks:
+      - name: fetch-repository
+        taskRef:
+          name: git-clone
+          kind: ClusterTask
+        workspaces:
+          - name: output
+            workspace: source
+          - name: basic-auth
+            workspace: basic-auth
+        params:
+          - name: url
+            value: $(params.repo_url)
+          - name: revision
+            value: $(params.revision)
       # Customize this task if you like, or just do a taskRef
       # to one of the hub task.
       - name: noop-task
