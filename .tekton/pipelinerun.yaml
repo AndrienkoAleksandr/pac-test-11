@@ -41,8 +41,6 @@ spec:
       # Customize this task if you like, or just do a taskRef
       # to one of the hub task.
       - name: noop-task
-        runAfter:
-          - fetch-repository
         workspaces:
           - name: source
             workspace: source
